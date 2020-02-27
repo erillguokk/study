@@ -4,7 +4,7 @@ package com.guosheng.zookeeper;
 import org.I0Itec.zkclient.ZkClient;
 
 public abstract class ZookeeperAbstractLock implements ExtLock {
-    private static final String CONNECTION="192.168.0.18:2181";
+    private static final String CONNECTION="192.168.43.243:2181";
     public static final int SESSION_TIMEOUT = 10000;
     public ZkClient zkClient = new ZkClient(CONNECTION, SESSION_TIMEOUT);
     //获取锁

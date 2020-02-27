@@ -55,7 +55,6 @@ public class ZookeeperDistrbuteLock extends ZookeeperAbstractLock {
                     countDownLatch.countDown();
                 }
             }
-
             @Override
             public void handleDataChange(String dataPath, Object data) throws Exception {
 
@@ -76,7 +75,7 @@ public class ZookeeperDistrbuteLock extends ZookeeperAbstractLock {
     }
 
     public static void main(String [] args){
-        for (int i=0;i<10;i++) {
+        for (int i=0;i<2;i++) {
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -85,7 +84,8 @@ public class ZookeeperDistrbuteLock extends ZookeeperAbstractLock {
                     zkLock.getLock();
                     //模拟业务操作
                     try {
-                        Thread.sleep(500);
+                        System.out.println(Thread.currentThread().getName() +":"+"开始了");
+                        Thread.sleep(20000);
                         System.out.println(Thread.currentThread().getName() +":"+"结束了");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
